@@ -1,0 +1,4 @@
+fastmcp
+bigrest
+requests
+python-dotenv

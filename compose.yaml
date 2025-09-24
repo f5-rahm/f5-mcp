@@ -1,0 +1,34 @@
+services:
+  f5mcp:
+    build:
+      context: ./f5mcp
+      dockerfile: Dockerfile
+    container_name: f5mcp
+    restart: unless-stopped
+    networks:
+      - labnet
+    ports:
+      - "8081:8081"
+
+
+  mcpo:
+    image: ghcr.io/open-webui/mcpo:main
+    container_name: mcpo
+    restart: unless-stopped
+    networks:
+      - labnet
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./mcpo-config.json:/app/config/config.json:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    command: ["mcpo", "--config", "/app/config/config.json", "--host", "0.0.0.0", "--port", "8000", "--hot-reload"]
+    depends_on:
+      - f5mcp
+    environment:
+      - MCPO_LOG_LEVEL=INFO
+
+
+networks:
+  labnet:
+    external: true

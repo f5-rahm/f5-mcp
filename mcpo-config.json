@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "f5mcp": {
+      "type": "streamable-http",
+      "url": "http://f5mcp:8081/mcp",
+      "headers": {
+        "Content-Type": "application/json",
+	"Accept": "application/json, text/event-stream"
+      }
+    }
+  }
+}
