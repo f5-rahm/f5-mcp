@@ -12,7 +12,7 @@ services:
 
   curlmcp:
     build:
-      context: ./curlmcp  # Directory containing Dockerfile and server.js
+      context: ./curlmcp
       dockerfile: Dockerfile
     container_name: curlmcp
     restart: unless-stopped
