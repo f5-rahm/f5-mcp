@@ -5,7 +5,15 @@
       "url": "http://f5mcp:8081/mcp",
       "headers": {
         "Content-Type": "application/json",
-	"Accept": "application/json, text/event-stream"
+	    "Accept": "application/json, text/event-stream"
+      }
+    },
+    "curlmcp": {
+      "type": "streamable-http",
+      "url": "http://curlmcp:8082/mcp",
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json, text/event-stream"
       }
     }
   }
