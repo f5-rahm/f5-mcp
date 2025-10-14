@@ -10,6 +10,16 @@ services:
     ports:
       - "8081:8081"
 
+  curlmcp:
+    build:
+      context: ./curlmcp
+      dockerfile: Dockerfile
+    container_name: curlmcp
+    restart: unless-stopped
+    networks:
+      - labnet
+    ports:
+      - "8082:8082"
 
   mcpo:
     image: ghcr.io/open-webui/mcpo:main
@@ -27,7 +37,6 @@ services:
       - f5mcp
     environment:
       - MCPO_LOG_LEVEL=INFO
-
 
 networks:
   labnet:
