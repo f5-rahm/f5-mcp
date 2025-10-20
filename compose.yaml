@@ -37,6 +37,7 @@ services:
       - f5mcp
     environment:
       - MCPO_LOG_LEVEL=INFO
+      - MCPO_API_KEY=${MCPO_API_KEY}
 
 networks:
   labnet:
